@@ -1,0 +1,25 @@
+.surface-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-column-gap: 2px;
+    grid-row-gap: 2px;
+    list-style: none;
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0;
+}
+
+.surface-elem {
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    background-color: rgba(214, 14, 16, 0.31);
+    transition: background .2s;
+    height: 100px;
+    width: 100px;
+}
+
+.img-surface{
+    width: 100px;
+    height: 100px;
+}
