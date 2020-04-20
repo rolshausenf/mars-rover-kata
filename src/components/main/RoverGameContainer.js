@@ -1,21 +1,19 @@
 import React from 'react';
-import {MarsRover} from "../rover/MarsRover";
-import {ControlPanel} from "./control/ControlPanel";
-import {Surface} from "./mars/Surface"
+import {MarsRover} from "./rover/MarsRover";
+import {RoverControl} from "./control/RoverControl";
+import {MarsSurface} from "./mars/marsSurface"
 
-export class RoverGameContainer extends React.Component{
+export class RoverGameContainer extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            rover: new MarsRover()
-        }
+        this.rover = new MarsRover()
     }
 
     render() {
         return (
             <div>
-                <ControlPanel rover={this.state.rover}/>
-                <Surface rover={this.state.rover}/>
+                <RoverControl rover={this.rover}/>
+                <MarsSurface rover={this.rover}/>
             </div>
         );
     }
