@@ -8,7 +8,6 @@ function App() {
         <div className="App">
             <Header/>
             <div className="main">
-                <div>some placeholder</div>
                 <RoverGameContainer/>
             </div>
         </div>

@@ -18,19 +18,19 @@ export class MarsSurface extends React.Component {
         this.obstacles = this.initializeObstacles();
     }
 
-    initializeRover(rover){
+    initializeRover(rover) {
         rover.position = this.randomPosition();
         rover.direction = ['N', 'E', 'S', 'W'][Math.floor(Math.random() * 4)];
         rover.showRoverCallback = this.showRover;
         return rover;
     }
 
-    initializeObstacles(){
+    initializeObstacles() {
         let obstacles = [];
         let count;
-        for(count = 0; count < OBSTACLE_COUNT; count++){
+        for (count = 0; count < OBSTACLE_COUNT; count++) {
             let obstacle = this.randomPosition();
-            while(this.rover.position.equals(obstacle) || this.target.equals(obstacle)){
+            while (this.rover.position.equals(obstacle) || this.target.equals(obstacle)) {
                 obstacle = this.randomPosition();
             }
             obstacles.push(obstacle);
@@ -38,17 +38,11 @@ export class MarsSurface extends React.Component {
         return obstacles;
     }
 
-    isObstacle(position){
-        let isObstacle = false;
-        this.obstacles.forEach((obstacle) => {
-            if(obstacle.equals(position)){
-                isObstacle = true;
-            }
-        });
-        return isObstacle;
+    isObstacle(position) {
+        return this.obstacles.filter((o) => o.equals(position)).length > 0;
     }
 
-    randomPosition(){
+    randomPosition() {
         return new Position(
             Math.floor(Math.random() * (SIDE_LENGTH)),
             Math.floor(Math.random() * (SIDE_LENGTH)));
@@ -63,12 +57,12 @@ export class MarsSurface extends React.Component {
 
     elementForPos(position) {
         if (position.equals(this.state.roverPosition)) {
-            return <RoverElement direction = {this.state.roverDirection}/>
+            return <RoverElement direction={this.state.roverDirection}/>
         }
         if (position.equals(this.target)) {
             return <TargetElement/>;
         }
-        if(this.isObstacle(position)){
+        if (this.isObstacle(position)) {
             return <RockElement/>
         }
         return <SurfaceElement/>
@@ -76,10 +70,10 @@ export class MarsSurface extends React.Component {
 
     renderElements() {
         let elements = [];
-        let i,j;
-        for (i = 0; i <SIDE_LENGTH; i++) {
-            for(j=0; j<SIDE_LENGTH; j++){
-                elements.push(this.elementForPos(new Position(i,j)));
+        let i, j;
+        for (i = 0; i < SIDE_LENGTH; i++) {
+            for (j = 0; j < SIDE_LENGTH; j++) {
+                elements.push(this.elementForPos(new Position(i, j)));
             }
         }
         return elements;
