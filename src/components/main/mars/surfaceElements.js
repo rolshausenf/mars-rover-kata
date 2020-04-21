@@ -24,7 +24,7 @@ export function RoverElement(props) {
     const directions = {
         'N':'90deg',
         'E':'180deg',
-        'S':'2700deg',
+        'S':'270deg',
         'W':'0deg'
     };
     const rotation = directions[props.direction];
