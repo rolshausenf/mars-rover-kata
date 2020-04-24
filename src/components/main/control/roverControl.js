@@ -46,9 +46,9 @@ export class RoverControl extends React.Component {
                         <button onClick={this.turnRight}>Right</button>
                     </div>
                     <input type="text" readOnly value={this.state.commands}/>
-                </div>
-                <div className="execute">
-                    <button className="executeButton" onClick={this.execute}>Execute</button>
+                    <div className="execute">
+                        <button className="executeButton" onClick={this.execute}>Execute</button>
+                    </div>
                 </div>
             </div>);
     }
